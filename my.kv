@@ -1,0 +1,46 @@
+<MyGrid>
+    ide: ide
+    nombre: nombre
+    apellido: apellido
+
+
+    GridLayout:
+        cols:1
+        size: root.width-200, root.height-200
+        pos: 100, 100
+
+        GridLayout:
+            cols:2
+
+            Label:
+                text: "Id: "
+
+            TextInput:
+                id: ide
+                multiline:False
+
+
+            Label:
+                text: "Nombre: "
+
+            TextInput:
+                id: nombre
+                multiline:False
+
+            Label:
+                text: "Apellido: "
+
+            TextInput:
+                id: apellido
+                multiline:False
+
+
+        GridLayout:
+            cols:2
+            Button:
+                text: "Submit"
+                on_press: root.insert()
+
+            Button:
+                text: "Check"
+                on_press: root.check()
