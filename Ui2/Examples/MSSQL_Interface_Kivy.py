@@ -1,6 +1,6 @@
-import kivy
+
 import pyodbc as p
-import MSSQL_INTERFACE_PyQT as out
+import Data_Fetch as df
 
 from kivy.app import App
 from kivy.uix.widget import Widget
@@ -21,6 +21,7 @@ class MyGrid(Widget):
         idgen = int(self.ide.text)
         nombre = self.nombre.text
         apellido = self.apellido.text
+
         print("Id: ", idgen, "\nnombre: ", nombre, "\napellido: " , apellido)
         cursor.execute("INSERT INTO DERECHOS.dbo.Generador VALUES('%d' , '%s' , '%s')" %(idgen,nombre,apellido))
         conn.commit()
@@ -29,7 +30,8 @@ class MyGrid(Widget):
         self.apellido.text = ""
 
     def check(self):
-        out.showdb()
+        df.show()
+
 
 
 class  MyApp(App):
